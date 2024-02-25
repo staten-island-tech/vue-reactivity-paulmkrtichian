@@ -1,33 +1,33 @@
 <template>
-    <div>
-      <h1>{{ Destination.model }}</h1>
-      <h1>{{ Destination.description }}</h1>
-      <h1>{{ Destination.startingprice }}</h1>
-      <img :src="Destination.img" alt="" /> 
-      <h2>{{ clicked }}</h2>
-      <button @click="increment">Click ME</button>
-    </div>
-  </template>
-  
-  <script setup>
-  import { ref } from "vue";
-  const props = defineProps({
-    Destination: Object,
-  });
-  //clicker logic
-  const clicked = ref(0);
-  function increment() {
-    clicked.value++;
-  }
-  </script>
-  
-  <style scoped>
-  img {
-    width: 250px;
-    height: 300px;
-    object-fit: cover;
-  }
-  </style>
+  <div>
+    <h1>{{ props.Destination.model }}</h1>
+    <h1>{{ props.Destination.description }}</h1>
+    <h1>{{ props.Destination.startingprice }}</h1>
+    <img :src="props.Destination.img" alt="" />
+    <h2>{{ clicked }}</h2>
+    <button @click="addToCart"> Add to Cart</button>
 
+  </div>
+</template>
 
-<!-- <img :src="Destination.img" alt="" /> -->
+<script setup>
+import { ref, defineProps, defineEmits } from "vue";
+
+const props = defineProps(["Destination"]);
+const emits = defineEmits();
+
+const clicked = ref(0);
+
+function addToCart() {
+  clicked.value++;
+  emits("addToCart", props.Destination);
+}
+</script>
+
+<style scoped>
+img {
+  width: 450px;
+  height: 300px;
+  object-fit: cover;
+}
+</style>

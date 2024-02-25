@@ -1,19 +1,21 @@
 <template>
-  <div>
-    <DestCard
-      v-for="bmwmodel in bmwmodels"
-      :key="bmwmodel.model"
-      :Destination="bmwmodel"
-   />
-  </div>
+    <div>
+      <DestCard
+        v-for="bmwmodel in bmwmodels"
+        :key="bmwmodel.model"
+        :Destination="bmwmodel"
+        @addToCart="addToCartHandler"
+      />
+    
  
- </template>
- 
- 
- <script setup>
- import DestCard from "@/components/DestCard.vue";
- 
- 
+    </div>
+  </template>
+  
+  <script setup>
+  import DestCard from "@/components/DestCard.vue";
+  import AboutView from "@/views/AboutView.vue";
+  import state from "@/stores/store";
+  
  const bmwmodels = [
     {
         model: "X1 SUV",
@@ -139,13 +141,9 @@
     },
   
  ];
-  </script>
- 
- 
- <style scoped>
- h1 {
-  color: red;
- }
- </style>
- 
- 
+
+ function addToCartHandler(selectedModel) {
+  state.selectedModels.push(selectedModel);
+  state.clickCounts[selectedModel.model] = (state.clickCounts[selectedModel.model] || 0) + 1;
+}
+</script>
