@@ -1,8 +1,11 @@
-import { reactive } from 'vue';
+import { ref } from 'vue'
+import { defineStore } from 'pinia'
 
-const state = reactive({
-  selectedModels: [],
-  clickCounts: {},
-});
+export const CartStore = defineStore('cart', () => {
+  const cart = ref([])
+  function addCart(item) {
+    cart.value.push(item)
+  }
 
-export default state;
+  return { cart, addCart }
+})
