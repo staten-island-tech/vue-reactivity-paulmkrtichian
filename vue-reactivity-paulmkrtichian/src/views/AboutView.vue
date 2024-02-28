@@ -12,5 +12,10 @@
 </script>
 
 <style lang="scss" scoped>
+item.img{
+  border: 10px solid red;
+    width: 450px;
+    height: 300px;
+}
 
 </style>
