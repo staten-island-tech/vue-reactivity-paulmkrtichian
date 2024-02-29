@@ -1,11 +1,13 @@
 <template>
-  <div v-for="bmwmodel in bmwmodels" :key="bmwmodel.model">
+    <div class="bmw-models-container">
+  <div v-for="bmwmodel in bmwmodels" :key="bmwmodel.model" class="bmw-model-box">
   <h1>{{ bmwmodel.model }}</h1>
   <h2>{{ bmwmodel.description }}</h2>
   <img :src="bmwmodel.img" alt="" />
   <h2>{{ bmwmodel.startingprice }}</h2>
   <button id="buttton1" @click = "additemtocart(bmwmodel)">Add To Cart</button> 
   </div>
+</div>
 </template>
 
 <script setup>
@@ -142,9 +144,18 @@ function additemtocart(item){
 </script>
 
 <style scoped>
-
+.bmw-models-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+}
+.bmw-model-box {
+  width: 500px; 
+  margin-top: 30px;
+  margin-bottom: 10px; 
+  border: 5px solid blue;
+}
 img {
-    border: 10px solid red;
     width: 450px;
     height: 300px;
 }
