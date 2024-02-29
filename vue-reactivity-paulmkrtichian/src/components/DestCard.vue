@@ -137,7 +137,7 @@ const bmwmodels = [
  ];
 
  import { CartStore } from '../stores/store';
-var CartSelection = CartStore()
+let CartSelection = CartStore()
 function additemtocart(item){
     CartSelection.addCart(item)
 }
