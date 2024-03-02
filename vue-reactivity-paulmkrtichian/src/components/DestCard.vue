@@ -3,7 +3,7 @@
   <div v-for="bmwmodel in bmwmodels" :key="bmwmodel.model" class="bmw-model-box">
   <h1>{{ bmwmodel.model }}</h1>
   <h2>{{ bmwmodel.description }}</h2>
-  <img :src="bmwmodel.img" alt="" />
+  <img :src="bmwmodel.img"  />
   <h2>{{ bmwmodel.startingprice }}</h2>
   <button id="buttton1" @click = "additemtocart(bmwmodel)">Add To Cart</button> 
   </div>
