@@ -4,11 +4,8 @@ import { defineStore } from 'pinia'
 export const CartStore = defineStore('cart', () => {
   const cart = ref([])
 
-  function addCart(item) {
-    cart.value.push(item)
+  function addtocart(addedcar) {
+    cart.value.push(addedcar)
   }
-
-  
-
-  return { cart, addCart }
+  return { cart, addtocart }
 })

@@ -1,11 +1,11 @@
 <template>
-    <div class="bmw-models-container">
-  <div v-for="bmwmodel in bmwmodels" :key="bmwmodel.model" class="bmw-model-box">
+    <div class="bmw-container">
+  <div v-for="bmwmodel in bmwmodels" :key="bmwmodel.model" class="bmw-box">
   <h1>{{ bmwmodel.model }}</h1>
   <h2>{{ bmwmodel.description }}</h2>
   <img :src="bmwmodel.img"  />
   <h2>{{ bmwmodel.startingprice }}</h2>
-  <button id="buttton1" @click = "additemtocart(bmwmodel)">Add To Cart</button> 
+  <button id="buttton1" @click = "addaddedcartocart(bmwmodel)">Add To Cart</button> 
   </div>
 </div>
 </template>
@@ -138,18 +138,18 @@ const bmwmodels = [
 
  import { CartStore } from '../stores/store';
 let CartSelection = CartStore()
-function additemtocart(item){
-    CartSelection.addCart(item)
+function addaddedcartocart(addedcar){
+    CartSelection.addtocart(addedcar)
 }
 </script>
 
 <style scoped>
-.bmw-models-container {
+.bmw-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between; 
 }
-.bmw-model-box {
+.bmw-box {
   width: 500px; 
   margin-top: 30px;
   margin-bottom: 10px; 
